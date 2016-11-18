@@ -3,16 +3,10 @@ package edu.calvin.cs262;
 import com.google.gson.Gson;
 import com.sun.jersey.api.container.httpserver.HttpServerFactory;
 import com.sun.net.httpserver.HttpServer;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
-import javax.ws.rs.POST;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.Consumes;
 import java.io.IOException;
 import java.sql.*;
 import java.util.*;
@@ -73,7 +67,7 @@ public class MonopolyResource {
     //    private static final String DB_LOGIN_ID = "postgres";
     private static final String DB_PASSWORD = "postgres";
 
-    private List retrievePlayers() throws Exception {
+    private List retrievePlayers(){
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
@@ -87,7 +81,8 @@ public class MonopolyResource {
                 players.add(new Player(rs.getInt(1), rs.getString(2), rs.getString(3)));
             }
         } catch (SQLException e) {
-            throw (e);
+            System.out.println(e.toString());
+            // throw (e);
         } finally {
             rs.close();
             statement.close();
