@@ -21,15 +21,14 @@ import java.util.*;
  * This module implements a RESTful service for the player table of the monopoly database.
  * Only the player relation is supported, not the game or playergame objects.
  * The server requires Java 1.7 (not 1.8).
- *
+ * <p>
  * I tested these services using IDEA's REST Client test tool. Run the server and open
  * Tools-TestRESTService and set the appropriate HTTP method, host/port, path and request body and then press
  * the green arrow (submit request).
  *
  * @author ccdh24
- * CS262 Lab09 11-14-16
+ *         CS262 Lab09 11-14-16
  * @author kvlinden
- * @version summer, 2015 - original version
  * @version summer, 2016 - upgraded to JSON; added Player POJO; removed unneeded libraries
  */
 @Path("/monopoly")
@@ -71,7 +70,7 @@ public class MonopolyResource {
     private static final String DB_URI = "jdbc:postgresql://127.0.0.1:5432/monopoly";
     // I did this lab on my own machine, so probably will need to change the username
     private static final String DB_LOGIN_ID = "christiaanhazlett";
-//    private static final String DB_LOGIN_ID = "postgres";
+    //    private static final String DB_LOGIN_ID = "postgres";
     private static final String DB_PASSWORD = "postgres";
 
     private List retrievePlayers() throws Exception {
